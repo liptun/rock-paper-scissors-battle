@@ -83,7 +83,7 @@ const createRenderer = (containerElement: HTMLDivElement) => {
   containerElement.appendChild(renderer.domElement);
 
   const animation = (time: number) => {
-    requestAnimationFrame(animation);
+    requestAnimationFrame(() => animation(time + 1));
 
     renderList.forEach((el) => el.update(renderList));
 
